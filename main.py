@@ -1,5 +1,6 @@
 from turtle import Screen
 from player import Player
+from level import Level
 
 screen = Screen()
 screen.title("Turtle Crossing Game!")
@@ -8,6 +9,7 @@ screen.bgcolor("white")
 screen.tracer(0)
 
 player = Player()
+scoreboard = Level()
 
 screen.listen()
 screen.onkey(player.up, "Up")

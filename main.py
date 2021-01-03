@@ -1,7 +1,8 @@
 from turtle import Screen
 from player import Player
 from level import Level
-from car import Car
+from car_manager import CarManager
+import random
 import time
 
 screen = Screen()
@@ -16,7 +17,7 @@ Y_COORDINATE = -280
 
 player = Player()
 level = Level()
-car = Car()
+car_manager = CarManager()
 
 screen.listen()
 screen.onkey(player.up, "Up")
@@ -24,8 +25,12 @@ screen.onkey(player.up, "Up")
 game_is_on = True
 
 while game_is_on:
+    time.sleep(0.1)
     screen.update()
-    time.sleep(car.move_speed)
+
+    car_manager.create_car()
+    car_manager.move()
+
     if player.ycor() > 280:
         level.increase_level()
         player.goto(X_COORDINATE, Y_COORDINATE)

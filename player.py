@@ -1,6 +1,5 @@
 from turtle import Turtle
-X_COR = 0
-Y_COR = -280
+STARTING_POSITION = (0, -280)
 MOVE = 10
 
 class Player(Turtle):
@@ -11,8 +10,8 @@ class Player(Turtle):
         self.penup()
         self.color("black")
         self.shapesize(stretch_len=1,stretch_wid=1)
-        self.goto(X_COR, Y_COR)
-        self.left(90)
+        self.goto(STARTING_POSITION)
+        self.setheading(90)
 
     def up(self):
         new_y = self.ycor() + MOVE

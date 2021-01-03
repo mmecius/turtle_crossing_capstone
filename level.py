@@ -20,3 +20,9 @@ class Level(Turtle):
         self.score += 1
         self.update()
 
+    def game_over(self):
+        self.goto(0, 0)
+        self.write(f"GAME OVER!", align="center", font=("Courier", 25, "normal"))
+
+
+

@@ -34,9 +34,11 @@ while game_is_on:
     if player.is_at_finish_line():
         player.go_to_start()
         level.increase_level()
+        car_manager.level_up()
 
     for car in car_manager.all_cars:
         if car.distance(player) < 20:
+            level.game_over()
             game_is_on = False
 
 screen.exitonclick()

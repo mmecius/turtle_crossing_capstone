@@ -31,8 +31,12 @@ while game_is_on:
     car_manager.create_car()
     car_manager.move()
 
-    if player.ycor() > 280:
+    if player.is_at_finish_line():
+        player.go_to_start()
         level.increase_level()
-        player.goto(X_COORDINATE, Y_COORDINATE)
+
+    for car in car_manager.all_cars:
+        if car.distance(player) < 20:
+            game_is_on = False
 
 screen.exitonclick()
